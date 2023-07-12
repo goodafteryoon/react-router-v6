@@ -3,7 +3,6 @@ import { users } from '../../db';
 
 const User = () => {
   const { id } = useParams();
-  console.log(typeof Number(id));
 
   return (
     <>
@@ -12,7 +11,7 @@ const User = () => {
       </h1>
       <div>
         <Link to={'followers'}>followers</Link>
-        <Outlet />
+        <Outlet context={{ nameOfUser: users[Number(id) - 1].name }} />
       </div>
     </>
   );
